@@ -12,7 +12,7 @@ const page = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // if (loading) return <PCLoader />;
+  if (loading) return <PCLoader />;
   return (
     <div>
       <Hero />

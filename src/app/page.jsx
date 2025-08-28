@@ -10,7 +10,7 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  // if (loading) return <Loader />;
+  if (loading) return <Loader />;
 
   return (
     <div>
