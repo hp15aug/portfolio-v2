@@ -8,11 +8,26 @@ const page = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
-    return () => clearTimeout(timer);
+    // Check if PC loader has been shown before in this session
+    const hasPCLoaderBeenShown = sessionStorage.getItem("pcLoaderShown");
+
+    if (!hasPCLoaderBeenShown) {
+      // First time visiting - show loader
+      const timer = setTimeout(() => {
+        setLoading(false);
+        // Mark PC loader as shown for this session
+        sessionStorage.setItem("pcLoaderShown", "true");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    } else {
+      // Loader already shown - skip it
+      setLoading(false);
+    }
   }, []);
 
   if (loading) return <PCLoader />;
+
   return (
     <div>
       <Hero />
