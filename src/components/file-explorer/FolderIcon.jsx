@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-export default function Icon({ image, label, path }) {
+export default function FolderIcon({ image, label, path }) {
   const [selected, setSelected] = useState(false);
   const [clicks, setClicks] = useState(0);
   const [pressed, setPressed] = useState(false);
@@ -69,7 +69,7 @@ export default function Icon({ image, label, path }) {
       {/* Icon Label */}
       <p
         className={`text-xs text-center px-1 font-mono leading-tight
-          ${selected ? "bg-blue-800 text-white" : "text-white"}
+          ${selected ? "bg-blue-800 text-white" : "text-gray-800"}
         `}
       >
         {label}

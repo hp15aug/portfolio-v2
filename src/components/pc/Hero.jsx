@@ -23,7 +23,7 @@ const Hero = () => {
       </motion.div>
 
       <motion.div className="pt-2 pl-[33%]" drag dragMomentum={false}>
-        <Icon image="/pc/explorer2.png" label="About Me" path="/about-me" />
+        <Icon image="/pc/explorer2.png" label="About Me" path="/about" />
       </motion.div>
 
       <motion.div className="pt-2" drag dragMomentum={false}>

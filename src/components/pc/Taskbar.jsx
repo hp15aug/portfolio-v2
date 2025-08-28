@@ -1,9 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Taskbar() {
   const router = useRouter();
+  const pathname = usePathname();
+
   const [date, setDate] = useState(new Date().toLocaleDateString());
   const [time, setTime] = useState(
     new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
@@ -21,18 +23,31 @@ export default function Taskbar() {
     return () => clearInterval(interval);
   }, []);
 
+  // Toggle navigation handler
+  const handleToggle = (target) => {
+    if (pathname === target) {
+      // If already in target → go back to /pc
+      router.push("/pc");
+    } else {
+      router.push(target);
+    }
+  };
+
   return (
     <div className="fixed bottom-0 left-0 w-full h-12 bg-gray-200 border-t border-gray-400 flex items-center justify-between px-2 font-mono text-sm">
       {/* Left Section */}
       <div className="flex items-center space-x-2">
         {/* Start Button */}
-        <button className="retro-btn cursor-pointer">
+        <button className="retro-btn ">
           <img src="/pc/start.png" alt="Start" className="h-6 w-6 mr-2" />
           <span className="text-black font-mono font-bold">Start</span>
         </button>
 
         {/* File Explorer */}
-        <button className="retro-btn cursor-pointer">
+        <button
+          className="retro-btn "
+          onClick={() => handleToggle("/file-explorer")}
+        >
           <img
             src="/pc/explorer2.png"
             alt="Explorer"
@@ -42,10 +57,7 @@ export default function Taskbar() {
         </button>
 
         {/* Snake Game */}
-        <button
-          className="retro-btn cursor-pointer"
-          onClick={() => router.push("/snake")}
-        >
+        <button className="retro-btn " onClick={() => handleToggle("/snake")}>
           <img src="/pc/snake.png" alt="Snake" className="h-6 w-6 mr-2" />
           <span className="text-black">Snake</span>
         </button>
