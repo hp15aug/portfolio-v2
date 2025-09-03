@@ -152,7 +152,7 @@ const AboutAI = () => {
         )}
       </div>
 
-      {/* Terminal scanlines effect */}
+      
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/5 to-transparent bg-repeat-y animate-pulse opacity-30"></div>
       </div>
