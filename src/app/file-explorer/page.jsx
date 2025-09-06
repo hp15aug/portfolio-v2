@@ -17,7 +17,7 @@ const page = () => {
           href="https://drive.google.com/drive/folders/1x-5r9RobFMQWBcHwkXZ1JZymNkIVq06v"
         >
           <FolderIcon
-            image="/pc/explorer2.png"
+            image="/pc/resume.png"
             label="Resume"
             path="https://drive.google.com/drive/folders/1x-5r9RobFMQWBcHwkXZ1JZymNkIVq06v"
           />
@@ -25,18 +25,14 @@ const page = () => {
 
         <div>
           <FolderIcon
-            image="/pc/explorer2.png"
+            image="/pc/projects.png"
             label="Projects"
             path="/projects"
           />
         </div>
 
         <div className="">
-          <FolderIcon
-            image="/pc/explorer2.png"
-            label="Contact"
-            path="/contact"
-          />
+          <FolderIcon image="/pc/contact.png" label="Contact" path="/contact" />
         </div>
         <div>
           <FolderIcon
@@ -47,9 +43,6 @@ const page = () => {
         </div>
         <div>
           <FolderIcon image="/pc/skills.png" label="Skills" path="/skills" />
-        </div>
-        <div>
-          <FolderIcon image="/pc/resume.png" label="Resume" path="/resume" />
         </div>
       </div>
       <Taskbar />

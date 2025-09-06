@@ -25,7 +25,7 @@ const Hero = () => {
             href="https://drive.google.com/drive/folders/1x-5r9RobFMQWBcHwkXZ1JZymNkIVq06v"
           >
             <Icon
-              image="/pc/explorer2.png"
+              image="/pc/resume.png"
               label="Resume"
               path="https://drive.google.com/drive/folders/1x-5r9RobFMQWBcHwkXZ1JZymNkIVq06v"
             />
@@ -39,6 +39,10 @@ const Hero = () => {
             path="/experience"
           />
         </motion.div>
+
+        <motion.div className="pt-2" drag dragMomentum={false}>
+          <Icon image="/pc/skills.png" label="Skills" path="/skills" />
+        </motion.div>
       </div>
 
       <motion.div className="pt-2 pl-[45%]" drag dragMomentum={false}>
@@ -50,11 +54,11 @@ const Hero = () => {
       </motion.div>
 
       <motion.div className="pt-2" drag dragMomentum={false}>
-        <Icon image="/pc/explorer2.png" label="Contact" path="/contact" />
+        <Icon image="/pc/contact.png" label="Contact" path="/contact" />
       </motion.div>
 
       <motion.div className="pt-2" drag dragMomentum={false}>
-        <Icon image="/pc/explorer2.png" label="Projects" path="/projects" />
+        <Icon image="/pc/projects.png" label="Projects" path="/projects" />
       </motion.div>
     </div>
   );

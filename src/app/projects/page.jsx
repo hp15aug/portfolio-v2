@@ -3,6 +3,7 @@ import Project from "@/components/projects/Project";
 import React from "react";
 import Back from "@/components/Back";
 import BlobCursor from "@/components/BlobCursor";
+import Collaboration from "@/components/Collaboration";
 
 // Make the container cover the viewport and position relative for BlobCursor
 const page = () => {
@@ -30,6 +31,7 @@ const page = () => {
 
         <Back />
         <Project />
+        <Collaboration />
       </div>
     </div>
   );

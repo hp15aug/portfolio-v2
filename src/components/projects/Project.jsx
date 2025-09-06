@@ -113,29 +113,33 @@ const Project = ({ projects }) => {
               transition={{ duration: 0.8, delay: 0.8, ease: [0.4, 0, 0.2, 1] }}
               viewport={{ once: false }}
             >
-              <motion.a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-6 py-3 border border-[#00ff99] text-[#00ff99] hover:bg-[#00ff99] hover:text-black transition-all duration-300 rounded-lg"
-                whileHover={{ scale: 1.05, boxShadow: "0 0 15px #00ff99" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Github size={20} />
-                <span className="font-medium">Code</span>
-              </motion.a>
+              {project.githubUrl && (
+                <motion.a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 px-6 py-3 border border-[#00ff99] text-[#00ff99] hover:bg-[#00ff99] hover:text-black transition-all duration-300 rounded-lg"
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 15px #00ff99" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Github size={20} />
+                  <span className="font-medium">Code</span>
+                </motion.a>
+              )}
 
-              <motion.a
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-6 py-3 bg-[#00ff99] text-black font-bold hover:bg-opacity-80 transition-all duration-300 rounded-lg"
-                whileHover={{ scale: 1.05, boxShadow: "0 0 15px #00ff99" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ExternalLink size={20} />
-                <span className="font-medium">Demo</span>
-              </motion.a>
+              {project.demoUrl && (
+                <motion.a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 px-6 py-3 bg-[#00ff99] text-black font-bold hover:bg-opacity-80 transition-all duration-300 rounded-lg"
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 15px #00ff99" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ExternalLink size={20} />
+                  <span className="font-medium">Demo</span>
+                </motion.a>
+              )}
             </motion.div>
           </motion.div>
         </div>
@@ -145,11 +149,18 @@ const Project = ({ projects }) => {
 
   const sampleProjects = [
     {
+      title: "Portfolio",
+      description:
+        "A creative portfolio site designed to showcase my skills and work through a fun, interactive recreation of a classic 1995 operating system.",
+      image: "projects/port.png",
+      githubUrl: "https://github.com/hp15aug/portfolio-v2",
+      demoUrl: "https://hp15aug.vercel.app/",
+    },
+    {
       title: "IL7 Studios",
       description:
         "A modern, responsive website built for IL7 Studios to showcase their creative services and portfolio.",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      image: "/projects/il7.jpeg",
       githubUrl: "https://github.com/hp15aug/client",
       demoUrl: "https://il7studios.com/",
     },
@@ -157,28 +168,41 @@ const Project = ({ projects }) => {
       title: "Spectrogram Visualization",
       description:
         "A sophisticated signal analysis tool for visualizing speech, music, and EEG signals using STFT, with interactive and real-time processing.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      image: "/projects/spec.jpeg",
       githubUrl: "https://github.com/hp15aug/spectrogram-pbl",
       demoUrl: "https://spectrogram-hp15a.streamlit.app/",
-    },
-    {
-      title: "Personal Portfolio Website",
-      description:
-        "A sleek and responsive portfolio site built to showcase my projects, skills, and experiences with smooth animations and a modern UI.",
-      image:
-        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
-      githubUrl: "https://github.com/yourusername/your-portfolio-repo",
-      demoUrl: "https://your-portfolio-url.vercel.app/",
     },
     {
       title: "NeuroFit Pro",
       description:
         "An AI-powered fitness assistant that analyzes real-time sensor data to detect activities, estimate calories, and provide personalized health coaching.",
-      image:
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
+      image: "projects/neuro.jpeg",
       githubUrl: "https://github.com/hp15aug/Neuro-Fit-AI",
       demoUrl: "https://neuro-fit-ai-hp15a.streamlit.app/",
+    },
+    {
+      title: "Mail Superapp",
+      description:
+        "A comprehensive email management platform that integrates email and is user-friendly interface with advanced features like AI-powered email drafting and smart categorization.",
+      image: "projects/mail.jpg",
+      githubUrl: "",
+      demoUrl: "",
+    },
+    {
+      title: "Slides",
+      description:
+        "A powerful presentation platform that prioritizes speed and collaboration. Skip the sign-up process with token-based workspaces, design stunning slides with an intuitive editor, and share your vision with versatile export options for both PowerPoint and PDF.",
+      image: "projects/present.png",
+      githubUrl: "",
+      demoUrl: "https://super-presentation-hp15aug.vercel.app/",
+    },
+    {
+      title: "Spreadsheet",
+      description:
+        "A collaborative, real-time spreadsheet application with AI-powered insights, advanced formula support, cell formatting, and seamless data sharing.",
+      image: "projects/sheet.jpg",
+      githubUrl: "",
+      demoUrl: "https://spread-sheets-hp15aug.vercel.app/abc/home",
     },
   ];
 
@@ -187,6 +211,36 @@ const Project = ({ projects }) => {
       {sampleProjects.map((project, index) => (
         <ProjectCard key={index} project={project} index={index} />
       ))}
+
+      {/* Final CTA Section */}
+      <motion.div
+        className="min-h-[50vh] flex flex-col items-center justify-center text-center px-6 py-20 space-y-6 font-mono"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+        viewport={{ once: false, amount: 0.4 }}
+      >
+        <motion.h2
+          className="text-4xl lg:text-6xl font-bold text-gray-100"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          viewport={{ once: false }}
+        >
+          ...and many more
+        </motion.h2>
+
+        <motion.a
+          href="https://github.com/hp15aug" // 🔗 change to your repo/profile
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-8 py-4 border border-[#00ff99] text-[#00ff99] rounded-lg hover:bg-[#00ff99] hover:text-black transition-all duration-300 text-lg font-semibold"
+          whileHover={{ scale: 1.05, boxShadow: "0 0 15px #00ff99" }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Click here to view
+        </motion.a>
+      </motion.div>
     </div>
   );
 };
