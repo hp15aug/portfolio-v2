@@ -10,20 +10,43 @@ const Hero = () => {
       style={{ backgroundImage: "url('/pc/wallpaper.png')" }}
     >
       {/* Set dragMomentum to false for more friction */}
-      <motion.div className="pt-2" drag dragMomentum={false}>
-        <Icon
-          image="/pc/explorer2.png"
-          label="Explorer"
-          path="/file-explorer"
-        />
-      </motion.div>
+      <div className="flex flex-col">
+        <motion.div className="pt-2" drag dragMomentum={false}>
+          <Icon
+            image="/pc/explorer2.png"
+            label="Explorer"
+            path="/file-explorer"
+          />
+        </motion.div>
+
+        <motion.div className="pt-2 " drag dragMomentum={false}>
+          <a
+            target="blank"
+            href="https://drive.google.com/drive/folders/1x-5r9RobFMQWBcHwkXZ1JZymNkIVq06v"
+          >
+            <Icon
+              image="/pc/explorer2.png"
+              label="Resume"
+              path="https://drive.google.com/drive/folders/1x-5r9RobFMQWBcHwkXZ1JZymNkIVq06v"
+            />
+          </a>
+        </motion.div>
+
+        <motion.div className="pt-2" drag dragMomentum={false}>
+          <Icon
+            image="/pc/experience.png"
+            label="Experience"
+            path="/experience"
+          />
+        </motion.div>
+      </div>
 
       <motion.div className="pt-2 pl-[45%]" drag dragMomentum={false}>
         <Icon image="/pc/snake.png" label="Snake" path="/snake" />
       </motion.div>
 
       <motion.div className="pt-2 pl-[33%]" drag dragMomentum={false}>
-        <Icon image="/pc/explorer2.png" label="About Me" path="/about" />
+        <Icon image="/pc/about.png" label="About Me" path="/about" />
       </motion.div>
 
       <motion.div className="pt-2" drag dragMomentum={false}>
